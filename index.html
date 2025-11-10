@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Mohamed Van Wichelen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            background: #e8e4d9;
+            width: 100%;
+            max-width: 800px;
+            min-height: 1100px;
+            padding: 80px 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .cv-title {
+            text-align: center;
+            font-size: 140px;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 60px;
+            letter-spacing: -5px;
+        }
+
+        .objet {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .separator {
+            width: 100%;
+            height: 1px;
+            background: #1a1a1a;
+            margin: 30px 0 40px 0;
+        }
+
+        .content {
+            text-align: center;
+            line-height: 1.8;
+            font-size: 15px;
+            color: #2a2a2a;
+            margin-bottom: 80px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .greeting {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .closing {
+            margin-top: 40px;
+            font-weight: 500;
+        }
+
+        .name {
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 80px;
+            color: #1a1a1a;
+            font-weight: 400;
+            font-style: italic;
+            transform: rotate(-5deg);
+        }
+
+        .contact-section {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .contact-text {
+            font-size: 11px;
+            color: #2a2a2a;
+        }
+
+        .copy-btn {
+            background: #1a1a1a;
+            border: none;
+            cursor: pointer;
+            color: #e8e4d9;
+            padding: 4px 8px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .copy-btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        .copy-feedback {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            color: #e8e4d9;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 10px;
+            white-space: nowrap;
+            margin-bottom: 8px;
+            z-index: 10;
+        }
+
+        .copy-feedback.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .cv-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .copy-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cv-container {
+                padding: 40px 30px;
+                min-height: auto;
+            }
+            .cv-title {
+                font-size: 80px;
+            }
+            .objet {
+                font-size: 18px;
+            }
+            .content {
+                font-size: 13px;
+            }
+            .signature {
+                font-size: 50px;
+            }
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+            .contact-section {
+                align-items: flex-start;
+            }
+            .contact-item {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <h1 class="cv-title">CV</h1>
+        
+        <div class="objet">Objet : Job étudiant</div>
+        
+        <div class="separator"></div>
+        
+        <div class="content">
+            <p class="greeting">Madame, Monsieur,</p>
+            
+            <p>Étudiant en Web Design, je suis à la recherche Job étudiant avec des horaires flexibles, et je souhaite vivement intégrer votre entreprise, "Comme chez vous", une sandwicherie. Bien que mes études soient axées sur le design web, je suis désireux de travailler dans un environnement dynamique comme le vôtre.</p>
+            
+            <p>Au cours de mes études, j'ai acquis des compétences solides en conception de sites internet. Cependant, je suis prêt à élargir mes horizons et à m'investir dans un domaine différent. Je suis convaincu que mon enthousiasme et ma volonté d'apprendre seront des atouts pour contribuer efficacement à votre équipe.</p>
+            
+            <p>Dynamique et motivé, je serais ravi de vous rencontrer pour discuter de l'apport que je pourrais avoir au sein de votre entreprise.</p>
+            
+            <p>Dans l'attente de votre réponse, je reste à votre disposition pour toute information complémentaire.</p>
+            
+            <div class="closing">
+                Bien cordialement,
+                <div class="name">Mohamed Van Wichelen</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="signature">MVW</div>
+            <div class="contact-section">
+                <div class="contact-item">
+                    <span class="contact-text">+32 47 89 44 21 42</span>
+                    <button class="copy-btn" id="copyPhoneBtn" title="Copier le numéro de téléphone">
+                        <span>📱</span>
+                        <span>Copier</span>
+                    </button>
+                    <div class="copy-feedback" id="phoneFeedback">Copié !</div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-text">mohamedvanwichelen1prof@gmail.com</span>
+                    <button class="copy-btn" id="copyEmailBtn" title="Copier l'adresse email">
+                        <span>✉️</span>
+                        <span>Copier</span>
+                    </button>
+                    <div class="copy-feedback" id="emailFeedback">Copié !</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Bouton copie téléphone
+        const copyPhoneBtn = document.getElementById('copyPhoneBtn');
+        const phoneFeedback = document.getElementById('phoneFeedback');
+        const phoneNumber = '+32 47 89 44 21 42';
+
+        copyPhoneBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(phoneNumber).then(function() {
+                phoneFeedback.classList.add('show');
+                setTimeout(function() {
+                    phoneFeedback.classList.remove('show');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Erreur lors de la copie:', err);
+            });
+        });
+
+        // Bouton copie email
+        const copyEmailBtn = document.getElementById('copyEmailBtn');
+        const emailFeedback = document.getElementById('emailFeedback');
+        const email = 'mohamedvanwichelen1prof@gmail.com';
+
+        copyEmailBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(email).then(function() {
+                emailFeedback.classList.add('show');
+                setTimeout(function() {
+                    emailFeedback.classList.remove('show');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Erreur lors de la copie:', err);
+            });
+        });
+    </script>
+</body>
+</html>
