@@ -11,6 +11,13 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background: #1a1a1a;
             font-family: 'Arial', sans-serif;
@@ -18,31 +25,32 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
 
         .cv-container {
             background: #e8e4d9;
             width: 100%;
-            max-width: 800px;
-            min-height: 1100px;
-            padding: 80px 60px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 50px 40px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            position: relative;
+            border-radius: 0;
         }
 
         .cv-title {
             text-align: center;
-            font-size: 140px;
+            font-size: clamp(60px, 15vw, 140px);
             font-weight: 900;
             color: #1a1a1a;
-            margin-bottom: 60px;
+            margin-bottom: clamp(30px, 8vw, 60px);
             letter-spacing: -5px;
         }
 
         .objet {
             text-align: center;
-            font-size: 22px;
+            font-size: clamp(16px, 4vw, 22px);
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 15px;
@@ -52,28 +60,29 @@
             width: 100%;
             height: 1px;
             background: #1a1a1a;
-            margin: 30px 0 40px 0;
+            margin: 20px 0 30px 0;
         }
 
         .content {
             text-align: center;
-            line-height: 1.8;
-            font-size: 15px;
+            line-height: 1.7;
+            font-size: clamp(12px, 2.5vw, 15px);
             color: #2a2a2a;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
+            flex-grow: 1;
         }
 
         .content p {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .greeting {
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .closing {
-            margin-top: 40px;
+            margin-top: 30px;
             font-weight: 500;
         }
 
@@ -82,19 +91,20 @@
             margin-top: 8px;
         }
 
-        .footer {
-            position: absolute;
-            bottom: 60px;
-            left: 60px;
-            right: 60px;
+        .footer-wrapper {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .signature-section {
+            text-align: left;
         }
 
         .signature {
             font-family: 'Brush Script MT', cursive;
-            font-size: 80px;
+            font-size: clamp(40px, 10vw, 80px);
             color: #1a1a1a;
             font-weight: 400;
             font-style: italic;
@@ -102,26 +112,26 @@
         }
 
         .contact-section {
-            text-align: right;
+            text-align: left;
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            gap: 12px;
+            gap: 15px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            gap: 8px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .contact-text {
-            font-size: 11px;
+            font-size: clamp(10px, 2vw, 11px);
             color: #2a2a2a;
-            white-space: nowrap;
-            order: 1;
+            white-space: normal;
+            word-break: break-word;
+            flex: 1;
+            min-width: 150px;
         }
 
         .copy-btn {
@@ -129,17 +139,17 @@
             border: none;
             cursor: pointer;
             color: #e8e4d9;
-            padding: 4px 8px;
+            padding: 5px 10px;
             border-radius: 3px;
             transition: all 0.3s ease;
-            font-size: 10px;
+            font-size: clamp(8px, 1.5vw, 10px);
             font-weight: 600;
             white-space: nowrap;
             position: relative;
             display: flex;
             align-items: center;
-            gap: 4px;
-            order: 2;
+            gap: 5px;
+            flex-shrink: 0;
         }
 
         .copy-btn:hover {
@@ -154,14 +164,14 @@
         .copy-feedback {
             display: none;
             position: absolute;
-            bottom: 100%;
+            bottom: 120%;
             left: 50%;
             transform: translateX(-50%);
             background: #1a1a1a;
             color: #e8e4d9;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 3px;
-            font-size: 10px;
+            font-size: 9px;
             white-space: nowrap;
             margin-bottom: 8px;
             z-index: 10;
@@ -186,113 +196,96 @@
         @media print {
             body {
                 background: white;
+                padding: 0;
             }
             .cv-container {
                 box-shadow: none;
-                max-width: 100%;
+                padding: 50px 40px;
             }
             .copy-btn {
                 display: none;
             }
         }
 
-        @media (max-width: 768px) {
+        /* Tablettes en paysage et ordinateurs */
+        @media (min-width: 1024px) {
             .cv-container {
-                padding: 60px 40px;
-                min-height: auto;
+                max-width: 800px;
+                padding: 80px 60px;
             }
 
-            .cv-title {
-                font-size: 100px;
-                margin-bottom: 40px;
+            .footer-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+                gap: 20px;
             }
 
-            .footer {
-                bottom: 40px;
-                left: 40px;
-                right: 40px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 50px;
-            }
-
-            .signature {
-                font-size: 60px;
+            .signature-section {
+                text-align: left;
+                flex: 0 0 auto;
             }
 
             .contact-section {
-                width: 100%;
-                text-align: left;
-                align-items: flex-start;
-                gap: 16px;
+                text-align: right;
+                align-items: flex-end;
+                flex: 1;
             }
 
             .contact-item {
-                width: 100%;
-                justify-content: flex-start;
-                flex-direction: row;
-                flex-wrap: wrap;
+                justify-content: flex-end;
             }
 
             .contact-text {
-                width: 100%;
-                margin-bottom: 4px;
-            }
-
-            .copy-btn {
-                width: fit-content;
+                min-width: auto;
+                text-align: right;
+                word-break: normal;
+                white-space: nowrap;
+                flex: none;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Tablettes */
+        @media (min-width: 768px) and (max-width: 1023px) {
             .cv-container {
-                padding: 40px 25px;
-                min-height: auto;
-            }
-
-            .cv-title {
-                font-size: 70px;
-                margin-bottom: 30px;
-                letter-spacing: -3px;
-            }
-
-            .objet {
-                font-size: 18px;
-                margin-bottom: 12px;
-            }
-
-            .separator {
-                margin: 20px 0 30px 0;
+                padding: 60px 50px;
             }
 
             .content {
-                font-size: 13px;
-                line-height: 1.6;
-                margin-bottom: 60px;
+                margin-bottom: 35px;
+            }
+        }
+
+        /* Téléphones */
+        @media (max-width: 767px) {
+            body {
+                padding: 10px;
             }
 
-            .footer {
-                bottom: 30px;
-                left: 25px;
-                right: 25px;
-                gap: 40px;
+            .cv-container {
+                padding: 35px 25px;
             }
 
-            .signature {
-                font-size: 50px;
+            .separator {
+                margin: 15px 0 25px 0;
             }
 
-            .contact-text {
-                font-size: 10px;
+            .content {
+                margin-bottom: 30px;
             }
 
-            .copy-btn {
-                font-size: 9px;
-                padding: 3px 6px;
+            .footer-wrapper {
+                gap: 25px;
             }
 
             .contact-item {
-                gap: 6px;
+                gap: 10px;
+            }
+
+            .contact-text {
+                min-width: 100%;
+                word-break: break-word;
+                white-space: normal;
             }
         }
     </style>
@@ -322,20 +315,24 @@
             </div>
         </div>
         
-        <div class="footer">
-            <div class="signature">MVW</div>
+        <div class="footer-wrapper">
+            <div class="signature-section">
+                <div class="signature">MVW</div>
+            </div>
+            
             <div class="contact-section">
                 <div class="contact-item">
                     <span class="contact-text">+32 47 89 44 21 42</span>
-                    <button class="copy-btn" id="copyPhoneBtn" title="Copier le numéro de téléphone">
+                    <button class="copy-btn" id="copyPhoneBtn" title="Copier le téléphone">
                         <span>📱</span>
                         <span>Copier</span>
                     </button>
                     <div class="copy-feedback" id="phoneFeedback">Copié !</div>
                 </div>
+                
                 <div class="contact-item">
                     <span class="contact-text">mohamedvanwichelen1prof@gmail.com</span>
-                    <button class="copy-btn" id="copyEmailBtn" title="Copier l'adresse email">
+                    <button class="copy-btn" id="copyEmailBtn" title="Copier l'email">
                         <span>✉️</span>
                         <span>Copier</span>
                     </button>
